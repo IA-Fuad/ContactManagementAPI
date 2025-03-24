@@ -13,7 +13,7 @@ ContactManagement.WebAPI is a .NET 8 Minimal API project designed for Contact an
 
 1. Clone the repository.
 2. Update the ContactManagementDb database connection in the appsettings.Development.json file to point to an available SQL Server.
-3. If using an IDE (Rider or Visual Studio), set ContactManagement.WebAPI as the startup project and run it from there. Alternatively, use a CLI to run `dotnet run` command from ../src/ContactManagement.WebAPI.
+3. If using an IDE (Rider or Visual Studio), set ContactManagement.WebAPI as the startup project and run it from there. Alternatively, use a CLI to run `dotnet run` command from ../src/ContactManagement.WebAPI. On startup, the project will try to create the database and apply migration automatically. See console logs for any errors due to server connection.
 
 ## Testing
 
@@ -35,7 +35,7 @@ Each module contains the following folders:
 
 - **Endpoints**: Defines the API endpoints.
 - **Repo**: Contains repository services for `Commands` and `Queries` to handle database interactions.
-- **Configurations**: Contains configuration-related classes.
+- **Configurations**: Register services and middlewares.
 
 A top-level `Endpoints.cs` file consolidates all available API endpoints for easy reference.
 
