@@ -48,13 +48,7 @@ public static class ConfigureMiddlewares
         using var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>()?.CreateScope();
         var dbContext = serviceScope?.ServiceProvider.GetRequiredService<ContactManagementDbContext>();
 
-        if (!await dbContext!.Database.CanConnectAsync())
-        {
-            throw new Exception($"Cannot connect to SQL Server. Please check the connection string.");
-        }
-        
-        await dbContext.Database.EnsureCreatedAsync();
-        await dbContext.Database.MigrateAsync()!;
+        await dbContext!.Database.MigrateAsync()!;
         
         await SeedDatabase(dbContext);
     }
