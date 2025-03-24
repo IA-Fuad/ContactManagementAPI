@@ -19,7 +19,7 @@ ContactManagement.WebAPI is a .NET 8 Minimal API project designed for Contact an
 
 - Example unit tests are provided for key functionalities.
 - API can be manually tested using **Swagger**. (path: {root-url}/swagger/).
-
+- When testing on Swagger, use the `api/auth/login` endpoint to get JWT token and use it to authorize. Each endpoint describes what they do and which authorization role is required. For example, to create a contact, first use the login endpoint to get a JWT token for `admin` using the username: `admin` and password: `password`. In response, it will return a token. Click on `Authorize` button at the top and copy and paste the token to authorize. 
 
 ## Architecture
 
